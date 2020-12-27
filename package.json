@@ -1,0 +1,12 @@
+{
+  "name": "gambscript-minimal-test",
+  "version": "0.0.0",
+  "description": "Minimal testing of gambscript",
+  "main": "index.js",
+  "author": "Paulo Silva Filho",
+  "license": "MIT",
+  "dependencies": {
+    "gambscript": "file:../gambscript",
+    "underscore": "^1.12.0"
+  }
+}
