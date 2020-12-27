@@ -49,15 +49,15 @@
 
 (define (background-set! id color)
   (##inline-host-statement
-   "var c = P(@2@);  // convert Scheme string to JS
+   "var c = g_scm2host(@2@);  // convert Scheme string to JS
     console.log(c);"
    id
    color))
 
 (define (setInterval callback timeout)
   (##inline-host-statement
-   "var cb = P(@1@); // convert Scheme procedure to JS
-    var to = P(@2@); // convert timeout to JS
+   "var cb = g_scm2host(@1@); // convert Scheme procedure to JS
+    var to = g_scm2host(@2@); // convert timeout to JS
     setInterval(cb, to);"
    callback
    timeout))
@@ -122,10 +122,10 @@
          (raw.console.log "ESSE É UM TESTE DE STRING RAW")
          (raw.console.log '(1 2 3 4 5 6))
          
-         (println "Testing call/cc. It must return 4:")
-         (println (+ 1 (call/cc (lambda (k)  (+ 2 (k 3))))))
-         (println (+ 1 (##call-with-current-continuation (lambda (k)  (+ 2 (k 3))))))
-         (println "Call/cc tested and enabled.")
+         ; (println "Testing call/cc. It must return 4:")
+         ; (println (+ 1 (call/cc (lambda (k)  (+ 2 (k 3))))))
+         ; (println (+ 1 (##call-with-current-continuation (lambda (k)  (+ 2 (k 3))))))
+         ; (println "Call/cc tested and enabled.")
 
          (println "Testing direct Javascript function/methods/class calls:")
          (!sa "console.log" "Calling" "console.log" "using a " "string." "Useful" 
